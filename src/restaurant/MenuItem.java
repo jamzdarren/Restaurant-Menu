@@ -1,20 +1,22 @@
 package restaurant;
 
+import java.time.LocalDateTime;
+
 public class MenuItem {
     // properties/fields
     private String name;
     private Double price;
     private String description;
     private String category;
-    private boolean newItem;
+    private LocalDateTime lastUpdated;
 
     // constructors
-    public MenuItem(String name, Double price, String description, String category, boolean newItem) {
+    public MenuItem(String name, Double price, String description, String category) {
         this.name = name;
         this.price = price;
         this.description = description;
         this.category = category;
-        this.newItem = newItem;
+        this.lastUpdated = LocalDateTime.now();
     }
 
     // getters/setters
@@ -46,10 +48,11 @@ public class MenuItem {
         this.category = category;
     }
 
-    public boolean isNewItem() {
-        return newItem;
+    public LocalDateTime isLastUpdated() {
+        return lastUpdated;
     }
-    public void setNewItem(boolean newItem) {
-        this.newItem = newItem;
+    public void setLastUpdated(LocalDateTime lastUpdated) {
+        this.lastUpdated = lastUpdated;
     }
+
 }

@@ -1,15 +1,14 @@
 package restaurant;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Menu {
     // properties/fields
-    private ArrayList<MenuItem> menuItems;
-    private Date lastUpdated;
+    private ArrayList<MenuItem> menuItems = new ArrayList<>();
 
     // constructors
-    public Menu(ArrayList<MenuItem> menuItems) {
+    public Menu() {
         this.menuItems = menuItems;
     }
 
@@ -21,15 +20,16 @@ public class Menu {
         this.menuItems = menuItems;
     }
 
-    public Date getLastUpdated() {
-        return lastUpdated;
+    // methods
+    public void addItem(MenuItem menuItem) {
+        menuItems.add(menuItem);
     }
-    public void setLastUpdated(Date lastUpdated) {
-        this.lastUpdated = lastUpdated;
+    public void removeItem(MenuItem menuItem) {
+        menuItems.remove(menuItem);
+    }
+    public void isNew(MenuItem menuItem) {
+        menuItems.remove(menuItem);
+        this.lastUpdated = LocalDateTime.now();
     }
 
-    public void addNewItem(MenuItem menuItem) {
-        menuItems.add(menuItem);
-        this.lastUpdated = null;
-    }
 }
